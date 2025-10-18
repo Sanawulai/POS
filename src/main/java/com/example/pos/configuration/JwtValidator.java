@@ -1,5 +1,6 @@
 package com.example.pos.configuration;
 
+import com.auth0.jwt.interfaces.Claim;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
