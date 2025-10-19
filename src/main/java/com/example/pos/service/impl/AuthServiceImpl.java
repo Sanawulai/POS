@@ -52,7 +52,8 @@ public class AuthServiceImpl implements AuthService {
         newUser.setRole(userDto.getRole());
         newUser.setFullname(userDto.getFullname());
         newUser.setPhone(userDto.getPhone());
-        newUser.setLastLogin(userDto.getLastLogin());
+        //lastlogin
+        newUser.setLastLogin(LocalDateTime.now());
         newUser.setCreatedAt(LocalDateTime.now());
         newUser.setUpdatedAt(LocalDateTime.now());
         User savedUser = userRepository.save(newUser);
