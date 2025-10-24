@@ -1,12 +1,12 @@
-
-
 services:
   mysql:
     image: mysql:8
     container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: springstudent
-      MYSQL_DATABASE: pos
+      MYSQL_DATABASE: springstudent
+      MYSQL_USER: springstudent
+      MYSQL_PASSWORD: springstudent
     ports:
       - "3306:3306"
     volumes:
@@ -14,13 +14,13 @@ services:
 
   pos-app:
     build:
-      context: ..   # go two folders up to find the Dockerfile in POS\
+      context: .
       dockerfile: Dockerfile
     container_name: pos-app
     depends_on:
       - mysql
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/pos
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/pos
       SPRING_DATASOURCE_USERNAME: springstudent
       SPRING_DATASOURCE_PASSWORD: springstudent
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
