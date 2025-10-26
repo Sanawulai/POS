@@ -38,9 +38,11 @@ public class User {
 
     private LocalDateTime lastLogin;
 
+    private Boolean isActive = true;
+
     public User() {
     }
-    public User(UUID id, String fullname, String email, String phone, UserRole role, String password, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime lastLogin) {
+    public User(UUID id, String fullname, String email, String phone, UserRole role, String password, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime lastLogin, Boolean isActive) {
         this.id = id;
         this.fullname = fullname;
         this.email = email;
@@ -50,6 +52,7 @@ public class User {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.lastLogin = lastLogin;
+        this.isActive = isActive;
     }
 
     public UUID getId() {
@@ -122,5 +125,9 @@ public class User {
 
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public Boolean getActive() {
+        return isActive;
     }
 }
